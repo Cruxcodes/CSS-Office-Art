@@ -1,0 +1,113 @@
+body {
+  background: #655ae7;
+  margin: 0px;
+  padding: 0px;
+}
+
+.boxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+.box {
+  &.box-below,
+  &.box-above {
+    width: 200px;
+    height: 150px;
+    background-image: linear-gradient(to right, #ea3b60 40.5%, #ff506d 0%);
+
+    position: relative;
+    .top {
+      width: 105%;
+      height: 30px;
+      background: #000;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      top: -10px;
+      background-image: linear-gradient(to right, #ea3b60 40.5%, #ff506d 0%);
+    }
+    .shadow {
+      //   position: absolute;
+      z-index: 1;
+      width: 100%;
+      height: 25px;
+      //   bottom: -30px;
+      background: #171616b7;
+      //   left: 50%;
+      //   transform: translateX(-50%);
+    }
+
+    &__body {
+      .hold {
+        width: 25%;
+        height: 8px;
+        background: #5238d1;
+        position: relative;
+        left: calc(80% - 15%);
+        top: 5px;
+        border-radius: 30px;
+      }
+    }
+  }
+
+  &.box-above {
+    width: 150px;
+    height: 100px;
+    position: relative;
+    right: 5px;
+    background-image: linear-gradient(to right, #695eee 40.5%, #a29bfe 0%);
+    .top {
+      height: 20px;
+      background-image: linear-gradient(to right, #695eee 40.5%, #a29bfe 0%);
+    }
+    .shadow {
+      height: 15px;
+    }
+  }
+}
+
+.person {
+  &__laptop {
+    width: 20%;
+    height: 200px;
+    background: orange;
+    position: relative;
+
+    &::before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        background: #000;
+        bottom: 0px;
+    }
+  }
+  &__table {
+    width: 60%;
+    height: 20px;
+    background: #c3bffe;
+    border-radius: 5px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 13px;
+      height: 320px;
+      background: #c3bffe;
+    }
+    &::before {
+      left: 25px;
+      // top: -10px;
+    }
+    &::after {
+      right: 25px;
+      // top: -10px;
+    }
+  }
+}
