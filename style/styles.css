@@ -115,4 +115,58 @@ body {
 }
 .person__table::after {
   right: 25px;
+}
+.person__structure {
+  position: relative;
+}
+.person__structure__legs__left .thigh {
+  width: 200px;
+  height: 50px;
+  background: orange;
+}
+.person__structure__legs__left .lower__leg {
+  width: 60px;
+  height: 250px;
+  background: #000;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: relative;
+  transform: rotate(8deg);
+  left: 45px;
+  top: 15px;
+  z-index: 5;
+}
+.person__structure__legs__left .lower__leg::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  border-radius: 30%;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -12px;
+}
+.person__structure__legs__left .foot {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  width: 80px;
+  height: 70px;
+  background: red;
+}
+.person__structure__legs__left .foot .shoe__top__part {
+  width: 45%;
+  height: 40%;
+  background: orange;
+  position: relative;
+}
+.person__structure__legs__left .foot .shoe__bottom__part {
+  width: 100%;
+  height: 60%;
+  background: blue;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 5px;
+  position: relative;
 }/*# sourceMappingURL=styles.css.map */

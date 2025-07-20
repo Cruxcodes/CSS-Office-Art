@@ -149,4 +149,80 @@ body {
       // top: -10px;
     }
   }
+
+  &__structure {
+    position: relative;
+    &__legs {
+      &__left {
+        .thigh {
+          width: 200px;
+          height: 50px;
+          background: orange;
+        }
+        .lower__leg {
+          width: 60px;
+          height: 250px;
+          background: #000;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          position: relative;
+          transform: rotate(8deg);
+          left: 45px;
+          top: 15px;
+          z-index: 5;
+          //   overflow-y: hidden;
+          //   overflow-x: visible;
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: black;
+            border-radius: 30%;
+            top: 50%;
+            transform: translateY(-50%);
+            // rotate(4deg);
+            right: -12px;
+          }
+        }
+        .foot {
+          display: flex;
+          flex-direction: column;
+          justify-content: end;
+          align-items: end;
+          width: 80px;
+          height: 70px;
+          background: red;
+          .shoe {
+            &__top__part {
+              width: 45%;
+              height: 40%;
+              background: orange;
+              position: relative;
+            }
+            &__bottom__part {
+              width: 100%;
+              height: 60%;
+              background: blue;
+              border-top-left-radius: 50%;
+              border-bottom-left-radius: 5px;
+              position: relative;
+              //   &::after {
+              //     content: "";
+              //     position: absolute;
+              //     width: 31px;
+              //     height: 20px;
+              //     background: #ea0000;
+              //     border-radius: 50%;
+              //     right: 34%;
+              //     top: -41%;
+              //     transform: rotate(327deg);
+              //   }
+            }
+          }
+        }
+      }
+    }
+  }
 }
