@@ -120,9 +120,29 @@ body {
   position: relative;
 }
 .person__structure__legs__left .thigh {
-  width: 200px;
+  position: relative;
+  left: 70px;
+  top: 50px;
+}
+.person__structure__legs__left .thigh .top {
+  background: black;
   height: 50px;
-  background: orange;
+  width: 150px;
+  background: black;
+  transform: rotate(-10deg);
+  border-radius: 30px;
+  position: relative;
+  top: 45px;
+  left: -8.9px;
+}
+.person__structure__legs__left .thigh .bottom {
+  width: 200px;
+  height: 60px;
+  background: black;
+  border-bottom-right-radius: 80px;
+  border-bottom-left-radius: 60px;
+  -webkit-clip-path: polygon(6% 18%, 100% 0%, 100% 100%, 0% 100%);
+          clip-path: polygon(6% 18%, 100% 0%, 100% 100%, 0% 100%);
 }
 .person__structure__legs__left .lower__leg {
   width: 60px;

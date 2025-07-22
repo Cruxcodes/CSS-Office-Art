@@ -155,9 +155,29 @@ body {
     &__legs {
       &__left {
         .thigh {
-          width: 200px;
-          height: 50px;
-          background: orange;
+          position: relative;
+          left: 70px;
+          top: 50px;
+          .top {
+            background: black;
+            height: 50px;
+            width: 150px;
+            background: black;
+            transform: rotate(-10deg);
+            border-radius: 30px;
+            position: relative;
+            top: 45px;
+            left:-8.9px;
+          }
+          .bottom {
+            width: 200px;
+            height: 60px;
+            background: black;
+
+            border-bottom-right-radius: 80px;
+            border-bottom-left-radius: 60px;
+            clip-path: polygon(6% 18%, 100% 0%, 100% 100%, 0% 100%);
+          }
         }
         .lower__leg {
           width: 60px;
