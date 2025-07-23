@@ -151,7 +151,35 @@ body {
   }
 
   &__structure {
-    position: relative;
+    &__body {
+      &__torso {
+        width: 120px;
+        height: 200px;
+        background: white;
+        position: relative;
+        // transform: translateX(-50%);
+        border-radius: 15% 40% 20px 9px  /50%;
+        transform: skew(10deg);
+        left: 146px;
+        top: 110px;
+        z-index: 6;
+
+        .left__hand{
+          .sleeve{
+            width: 40px;
+            height: 70px;
+            background: #dadde0;
+            border-radius: 50% 50% 10px 30%/ 50%;
+
+            position: absolute;
+            right: 30%;
+            top: 1%;
+            transform: rotate(40deg);
+          }
+        }
+      }
+    }
+    // position: relative;
     &__legs {
       &__left {
         .thigh {
@@ -167,7 +195,7 @@ body {
             border-radius: 30px;
             position: relative;
             top: 45px;
-            left:-8.9px;
+            left: -8.9px;
           }
           .bottom {
             width: 200px;
@@ -184,7 +212,7 @@ body {
           height: 250px;
           background: #000;
           border-top-right-radius: 10px;
-          border-bottom-right-radius: 10px;
+          border-bottom-right-radius: 30px;
           position: relative;
           transform: rotate(8deg);
           left: 45px;
@@ -201,7 +229,7 @@ body {
             background: black;
             border-radius: 30%;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-50%) rotate(2deg);
             // rotate(4deg);
             right: -12px;
           }
