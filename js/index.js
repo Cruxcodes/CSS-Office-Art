@@ -2,7 +2,8 @@ const goHomeBtn = document.getElementById("go-home");
 const personLaptop = document.querySelector(".person__laptop");
 const coffee = document.querySelector(".coffee");
 const mouth = document.querySelector(".mouth");
-const buttonInfo = document.querySelector(".button h3");
+const buttonInfo = document.querySelector(".banner h3");
+const banner = document.querySelector(".banner");
 
 const audio = new Audio("../assets/home.mp3");
 audio.loop = true;

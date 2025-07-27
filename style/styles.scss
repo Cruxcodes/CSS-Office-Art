@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 $laptop-cover-color: #f1effe;
 $light-purple: #c3bffe;
 $skin-color: #fdd6aa;
@@ -14,6 +15,57 @@ body {
   padding: 0px;
   // overflow: hidden;
   overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.banner {
+  width: fit-content;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 30px;
+  text-align: center;
+  h3 {
+    padding: 10px;
+    background: #F4E5A1 ;
+    position: relative;
+    animation: banner-swing 1s infinite ease-in-out alternate;
+    box-shadow: 0px 10px 20px rgba(132, 132, 132, 0.593);
+  }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 100%;
+    background: #E8E8E8 ;
+    top: -35px;
+    z-index: -1;
+    animation: banner-swing-before 1s infinite ease-in-out alternate;
+  }
+  &::before {
+    left: 5px;
+  }
+  &::after {
+    right: 5px;
+  }
+
+  @keyframes banner-swing {
+    0% {
+      left: 1%;
+    }
+    100% {
+      left: -1%;
+    }
+  }
+  @keyframes banner-swing-before {
+    0% {
+      transform: rotate(-10deg);
+    }
+    100% {
+      transform: rotate(10deg);
+    }
+  }
 }
 
 .boxes {
@@ -23,7 +75,7 @@ body {
   align-items: center;
   width: fit-content;
   position: absolute;
-  bottom: 20px;
+  bottom: 40px;
   left: 3%;
 }
 .box {
@@ -86,7 +138,7 @@ body {
 }
 
 .person {
-    transform: scale(0.8);
+  transform: scale(0.8);
 
   @media screen and (max-width: 1024px) {
     transform: scale(0.8);
@@ -323,7 +375,7 @@ body {
           // animation: mouth_move 3s ease-in-out infinite alternate-reverse;
 
           &.sing-mouth {
-            animation: mouth_move 6s 3s ease-in-out 1 alternate-reverse;
+            animation: mouth_move 6s 3.5s ease-in-out 1 alternate-reverse;
           }
           @keyframes mouth_move {
             0% {
@@ -728,26 +780,40 @@ body {
 
   h3 {
     font-size: 1rem;
-    color: lighten($skin-color, 15%);
+    // color: lighten($skin-color, 15%);
     text-shadow: 1px 6px 2px rgba(88, 88, 88, 0.74);
   }
-  button {
-    outline: none;
-    border: none;
-    padding: .1rem .6rem;
-    box-sizing: border-box;
-    background: $skin-color;
-    border-radius: 5px;
-    color: #fff;
-    font-size: .8rem;
-    cursor: pointer;
-    z-index: 1000;
-    transition: all 0.4s ease-in-out;
+}
+button {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  outline: none;
+  border: none;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 
-    &:hover {
-      background: darken($skin-color, 10%);
-      transform: scale(1.05);
-    }
+  background-image: linear-gradient(
+    45deg,
+    $skin-color,
+    $skin-color,
+    $hair-color
+  );
+  background-size: 300%;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    // background: darken($skin-color, 10%);
+    transform: scale(1.05);
+    background-position: 100%;
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(93, 93, 93, 0.2);
   }
 }
 
@@ -788,24 +854,12 @@ body {
   position: absolute;
   width: 100px;
   height: 40px;
-  // color: darken($skin-color, 10);
   left: -32px;
   text-align: center;
   font-weight: 400;
   margin-bottom: 0;
   transform: scale(0.3);
 
-  // &::after{
-  //   content: "";
-  //   position: absolute;
-  //   width: 30px;
-  //   height: 100px;
-  //   // top: 0;
-  //   // left: 0;
-  //   left: 140%;
-  //   top: -40px;
-  //   background: #000;
-  // }
   .eye {
     position: absolute;
     margin: auto;
