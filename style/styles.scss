@@ -25,6 +25,9 @@ body {
   transform: translateX(-50%);
   top: 30px;
   text-align: center;
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
   h3 {
     padding: 10px;
     background: #f4e5a1;
@@ -78,6 +81,19 @@ body {
   bottom: 40px;
   left: 3%;
   z-index: 1000;
+  @media screen and (max-width: 768px) {
+    transform: scale(0.8);
+  }
+  @media screen and (max-width: 608px) {
+    transform: scale(0.6);
+    bottom: 30px;
+    left: 1%;
+  }
+  @media screen and (max-width: 400px) {
+    transform: scale(0.5);
+    bottom: 100px;
+    left: -40px;
+  }
 }
 .box {
   &.box-below,
@@ -1012,6 +1028,14 @@ button {
   // this is for when the character is walking
 
   .walk {
+    @keyframes enterframe {
+      from {
+        left: -100%;
+      }
+      to {
+        left: 20%;
+      }
+    }
     @media screen and (max-width: 768px) {
       @keyframes enterframe {
         from {
