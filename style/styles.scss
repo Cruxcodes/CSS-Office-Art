@@ -372,7 +372,6 @@ body {
           transform: translateY(-40%);
           left: 6px;
           z-index: 1000;
-          // animation: mouth_move 3s ease-in-out infinite alternate-reverse;
 
           &.sing-mouth {
             animation: mouth_move 6s 3.5s ease-in-out 1 alternate-reverse;
