@@ -68,7 +68,7 @@ body {
   width: -moz-fit-content;
   width: fit-content;
   position: absolute;
-  bottom: 40px;
+  bottom: 15%;
   left: 3%;
   z-index: 1000;
 }
@@ -80,14 +80,12 @@ body {
 @media screen and (max-width: 608px) {
   .boxes {
     transform: scale(0.6);
-    bottom: 30px;
     left: 1%;
   }
 }
 @media screen and (max-width: 400px) {
   .boxes {
     transform: scale(0.5);
-    bottom: 100px;
     left: -40px;
   }
 }
@@ -144,28 +142,28 @@ body {
   width: fit-content;
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 10%;
+  transform: translateX(-50%);
 }
 @media screen and (max-width: 768px) {
   .person {
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
+    bottom: 10%;
+    transform: translateX(-50%) scale(0.8);
   }
 }
 @media screen and (max-width: 600px) {
   .person {
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0.6);
+    bottom: 10%;
+    transform: translateX(-50%) scale(0.6);
   }
 }
 @media screen and (max-width: 500px) {
   .person {
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0.4);
+    bottom: 10%;
+    transform: translateX(-50%) scale(0.4);
   }
 }
 .person .workspace {
@@ -791,7 +789,8 @@ button:hover {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 30%;
+  top: 50%;
+  transform: translateY(-50%);
   left: -100%;
 }
 @media screen and (max-width: 768px) {

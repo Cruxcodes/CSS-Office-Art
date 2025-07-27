@@ -16,6 +16,7 @@ body {
   // overflow: hidden;
   // overflow-x: hidden;
   font-family: "Poppins", sans-serif;
+  // border-bottom: 3px solid red;
 }
 
 .banner {
@@ -78,7 +79,7 @@ body {
   align-items: center;
   width: fit-content;
   position: absolute;
-  bottom: 40px;
+  bottom: 15%;
   left: 3%;
   z-index: 1000;
   @media screen and (max-width: 768px) {
@@ -86,12 +87,12 @@ body {
   }
   @media screen and (max-width: 608px) {
     transform: scale(0.6);
-    bottom: 30px;
+    // bottom: 30px;
     left: 1%;
   }
   @media screen and (max-width: 400px) {
     transform: scale(0.5);
-    bottom: 100px;
+    // bottom: 100px;
     left: -40px;
   }
 }
@@ -157,24 +158,25 @@ body {
 .person {
   @media screen and (max-width: 768px) {
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
+    bottom: 10%;
+    transform: translateX(-50%) scale(0.8);
   }
   @media screen and (max-width: 600px) {
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0.6);
+    bottom: 10%;
+    transform: translateX(-50%) scale(0.6);
   }
   @media screen and (max-width: 500px) {
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0.4);
+    bottom: 10%;
+    transform: translateX(-50%) scale(0.4);
   }
   width: fit-content;
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  // top: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
   .workspace {
     position: relative;
     top: 190px;
@@ -946,7 +948,8 @@ button {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 30%;
+    top: 50%;
+    transform: translateY(-50%);
     left: -100%;
 
     .head {
