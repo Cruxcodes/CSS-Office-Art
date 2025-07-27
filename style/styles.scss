@@ -4,9 +4,10 @@ $skin-color: #fdd6aa;
 $bg: #eae0ce;
 $cubic: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 $hair-color: #ebb447;
-
+$trouser-color: #898888;
 body {
-  background: #655ae7;
+  // background: #655ae7;
+  background: #3f3e4a;
   margin: 0px;
   padding: 0px;
 }
@@ -157,16 +158,14 @@ body {
       content: "";
       position: absolute;
       width: 13px;
-      height: 320px;
+      height: 400px;
       background: $light-purple;
     }
     &::before {
       left: 25px;
-      // top: -10px;
     }
     &::after {
       right: 25px;
-      // top: -10px;
     }
   }
 
@@ -356,7 +355,6 @@ body {
             }
           }
 
-
           @keyframes left__hand-rotate {
             0% {
               transform: rotate(40deg);
@@ -428,7 +426,40 @@ body {
     // position: relative;
     &__legs {
       width: fit-content;
+      position: relative;
 
+      .seat {
+        // content: "";
+        position: absolute;
+        width: 60%;
+        height: 10%;
+        background: #5238d1;
+        top: 41.5%;
+        right: -40%;
+        // z-index: -1;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        width: 60%;
+        height: 10%;
+        background: #a29bfe;
+        // top: 41.5%;
+        border-radius: 50% 50% 0 0;
+        bottom: 0px;
+        right: -40%;
+        z-index: -1;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 10%;
+        height: 55%;
+        background: #a29bfe;
+        bottom: 0px;
+        right: -15%;
+        z-index: -1;
+      }
       &__left {
         width: fit-content;
         .thigh {
@@ -437,10 +468,9 @@ body {
           width: fit-content;
           top: 50px;
           .top {
-            background: black;
+            background: $trouser-color;
             height: 55px;
             width: 150px;
-            background: black;
             transform: rotate(-10deg);
             border-radius: 30px;
             position: relative;
@@ -450,7 +480,7 @@ body {
           .bottom {
             width: 200px;
             height: 50px;
-            background: black;
+            background: $trouser-color;
 
             border-bottom-right-radius: 80px;
             border-bottom-left-radius: 60px;
@@ -460,7 +490,7 @@ body {
         .lower__leg {
           width: 50px;
           height: 200px;
-          background: #000;
+          background: $trouser-color;
           border-top-right-radius: 10px;
           border-bottom-right-radius: 30px;
           position: relative;
@@ -477,7 +507,7 @@ body {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: black;
+            background: $trouser-color;
             border-radius: 30%;
             top: 50%;
             transform: translateY(-50%) rotate(2deg);
@@ -492,18 +522,17 @@ body {
           align-items: end;
           width: 80px;
           height: 70px;
-          background: red;
           .shoe {
             &__top__part {
               width: 45%;
               height: 40%;
-              background: orange;
+              background: $skin-color;
               position: relative;
             }
             &__bottom__part {
               width: 100%;
               height: 60%;
-              background: blue;
+              background: rgb(255, 255, 255);
               border-top-left-radius: 50%;
               border-bottom-left-radius: 5px;
               position: relative;
@@ -520,6 +549,52 @@ body {
               //   }
             }
           }
+        }
+      }
+      &__left.left {
+        z-index: 1000;
+        // .thigh .top,.thigh .bottom,.lower__leg,.lower__leg::after {
+        //   box-shadow: 2px 3px 2px 0px rgba(23, 23, 23, 0.538);
+        // }
+      }
+      &__left.right {
+        position: absolute;
+
+        top: 0;
+        transform: perspective(10px) rotate(357deg);
+        .swing {
+          animation: swing-rotate 2s ease-in-out infinite;
+
+          @keyframes swing-rotate {
+            0% {
+              transform: rotate(0deg);
+            }
+            50% {
+              transform: rotate(5deg);
+            }
+            100% {
+              transform: rotate(0deg);
+            }
+          }
+        }
+        .lower__leg {
+          width: 50px;
+          height: 200px;
+          // background: #000;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 30px;
+          position: relative;
+          transform: rotate(337deg);
+          left: 97px;
+          top: 9px;
+          border-top-left-radius: 5px;
+          z-index: 5;
+        }
+
+        .foot {
+          position: absolute;
+          right: 4%;
+          transform: rotate(337deg);
         }
       }
     }

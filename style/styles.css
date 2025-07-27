@@ -1,5 +1,5 @@
 body {
-  background: #655ae7;
+  background: #3f3e4a;
   margin: 0px;
   padding: 0px;
 }
@@ -125,7 +125,7 @@ body {
   content: "";
   position: absolute;
   width: 13px;
-  height: 320px;
+  height: 400px;
   background: #c3bffe;
 }
 .person__table::before {
@@ -341,6 +341,36 @@ body {
 .person__structure__legs {
   width: -moz-fit-content;
   width: fit-content;
+  position: relative;
+}
+.person__structure__legs .seat {
+  position: absolute;
+  width: 60%;
+  height: 10%;
+  background: #5238d1;
+  top: 41.5%;
+  right: -40%;
+}
+.person__structure__legs::before {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 10%;
+  background: #a29bfe;
+  border-radius: 50% 50% 0 0;
+  bottom: 0px;
+  right: -40%;
+  z-index: -1;
+}
+.person__structure__legs::after {
+  content: "";
+  position: absolute;
+  width: 10%;
+  height: 55%;
+  background: #a29bfe;
+  bottom: 0px;
+  right: -15%;
+  z-index: -1;
 }
 .person__structure__legs__left {
   width: -moz-fit-content;
@@ -354,10 +384,9 @@ body {
   top: 50px;
 }
 .person__structure__legs__left .thigh .top {
-  background: black;
+  background: #898888;
   height: 55px;
   width: 150px;
-  background: black;
   transform: rotate(-10deg);
   border-radius: 30px;
   position: relative;
@@ -367,7 +396,7 @@ body {
 .person__structure__legs__left .thigh .bottom {
   width: 200px;
   height: 50px;
-  background: black;
+  background: #898888;
   border-bottom-right-radius: 80px;
   border-bottom-left-radius: 60px;
   clip-path: polygon(6% 18%, 100% 0%, 100% 100%, 0% 100%);
@@ -375,7 +404,7 @@ body {
 .person__structure__legs__left .lower__leg {
   width: 50px;
   height: 200px;
-  background: #000;
+  background: #898888;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 30px;
   position: relative;
@@ -390,7 +419,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: black;
+  background: #898888;
   border-radius: 30%;
   top: 50%;
   transform: translateY(-50%) rotate(2deg);
@@ -403,21 +432,59 @@ body {
   align-items: end;
   width: 80px;
   height: 70px;
-  background: red;
 }
 .person__structure__legs__left .foot .shoe__top__part {
   width: 45%;
   height: 40%;
-  background: orange;
+  background: #fdd6aa;
   position: relative;
 }
 .person__structure__legs__left .foot .shoe__bottom__part {
   width: 100%;
   height: 60%;
-  background: blue;
+  background: rgb(255, 255, 255);
   border-top-left-radius: 50%;
   border-bottom-left-radius: 5px;
   position: relative;
+}
+.person__structure__legs__left.left {
+  z-index: 1000;
+}
+.person__structure__legs__left.right {
+  position: absolute;
+  top: 0;
+  transform: perspective(10px) rotate(357deg);
+}
+.person__structure__legs__left.right .swing {
+  animation: swing-rotate 2s ease-in-out infinite;
+}
+@keyframes swing-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.person__structure__legs__left.right .lower__leg {
+  width: 50px;
+  height: 200px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 30px;
+  position: relative;
+  transform: rotate(337deg);
+  left: 97px;
+  top: 9px;
+  border-top-left-radius: 5px;
+  z-index: 5;
+}
+.person__structure__legs__left.right .foot {
+  position: absolute;
+  right: 4%;
+  transform: rotate(337deg);
 }
 
 .wrap {
