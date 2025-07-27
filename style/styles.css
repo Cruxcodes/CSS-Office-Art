@@ -3,7 +3,6 @@ body {
   background: #3f3e4a;
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden;
   font-family: "Poppins", sans-serif;
 }
 
@@ -18,7 +17,7 @@ body {
 }
 .banner h3 {
   padding: 10px;
-  background: #F4E5A1;
+  background: #f4e5a1;
   position: relative;
   animation: banner-swing 1s infinite ease-in-out alternate;
   box-shadow: 0px 10px 20px rgba(132, 132, 132, 0.593);
@@ -28,7 +27,7 @@ body {
   position: absolute;
   width: 7px;
   height: 100%;
-  background: #E8E8E8;
+  background: #e8e8e8;
   top: -35px;
   z-index: -1;
   animation: banner-swing-before 1s infinite ease-in-out alternate;
@@ -66,6 +65,7 @@ body {
   position: absolute;
   bottom: 40px;
   left: 3%;
+  z-index: 1000;
 }
 
 .box.box-below, .box.box-above {
@@ -116,39 +116,52 @@ body {
 }
 
 .person {
-  transform: scale(0.8);
-  position: relative;
-}
-@media screen and (max-width: 1024px) {
-  .person {
-    transform: scale(0.8);
-  }
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 @media screen and (max-width: 768px) {
   .person {
-    transform: scale(0.5);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+@media screen and (max-width: 600px) {
+  .person {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+}
+@media screen and (max-width: 500px) {
+  .person {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.4);
   }
 }
 .person .workspace {
   position: relative;
   top: 190px;
-  left: 50%;
   z-index: 100;
-  transform: translateX(-35%) scale(0.8);
 }
 .person .worker {
   width: -moz-fit-content;
   width: fit-content;
   position: relative;
-  top: -100px;
+  top: -70px;
   left: 40%;
-  transform: translateX(-20%);
+  transform: translateX(-50%);
 }
 .person__laptop {
-  width: 20%;
-  height: 180px;
+  width: 220px;
+  height: 120px;
   position: relative;
-  left: 5%;
+  left: 18%;
 }
 .person__laptop .cover {
   width: 80%;
@@ -181,7 +194,7 @@ body {
   left: 20px;
 }
 .person__table {
-  width: 60%;
+  width: 750px;
   height: 20px;
   background: #e8d5b7;
   border-radius: 5px;
@@ -191,7 +204,8 @@ body {
   content: "";
   position: absolute;
   width: 13px;
-  height: 400px;
+  height: 350px;
+  top: 2px;
   background: #e8d5b7;
 }
 .person__table::before {
@@ -446,9 +460,6 @@ body {
     transform: rotate(40deg);
   }
 }
-.person__structure__body__torso .left__hand .hand {
-  animation: left__hand-rotate 10s linear infinite;
-}
 .person__structure__body__torso .right__hand {
   height: 70%;
   width: 23px;
@@ -522,18 +533,18 @@ body {
   right: -15%;
   z-index: -1;
 }
-.person__structure__legs__left {
+.person__structure__legs__leg {
   width: -moz-fit-content;
   width: fit-content;
 }
-.person__structure__legs__left .thigh {
+.person__structure__legs__leg .thigh {
   position: relative;
   left: 70px;
   width: -moz-fit-content;
   width: fit-content;
   top: 50px;
 }
-.person__structure__legs__left .thigh .top {
+.person__structure__legs__leg .thigh .top {
   background: #898888;
   height: 55px;
   width: 150px;
@@ -543,7 +554,7 @@ body {
   top: 45px;
   left: -8.9px;
 }
-.person__structure__legs__left .thigh .bottom {
+.person__structure__legs__leg .thigh .bottom {
   width: 200px;
   height: 50px;
   background: #898888;
@@ -551,7 +562,7 @@ body {
   border-bottom-left-radius: 60px;
   clip-path: polygon(6% 18%, 100% 0%, 100% 100%, 0% 100%);
 }
-.person__structure__legs__left .lower__leg {
+.person__structure__legs__leg .lower__leg {
   width: 50px;
   height: 200px;
   background: #898888;
@@ -564,7 +575,7 @@ body {
   border-top-left-radius: 20px;
   z-index: 5;
 }
-.person__structure__legs__left .lower__leg::after {
+.person__structure__legs__leg .lower__leg::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -575,7 +586,7 @@ body {
   transform: translateY(-50%) rotate(2deg);
   right: -12px;
 }
-.person__structure__legs__left .foot {
+.person__structure__legs__leg .foot {
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -583,13 +594,13 @@ body {
   width: 80px;
   height: 70px;
 }
-.person__structure__legs__left .foot .shoe__top__part {
+.person__structure__legs__leg .foot .shoe__top__part {
   width: 45%;
   height: 40%;
   background: #fdd6aa;
   position: relative;
 }
-.person__structure__legs__left .foot .shoe__bottom__part {
+.person__structure__legs__leg .foot .shoe__bottom__part {
   width: 100%;
   height: 60%;
   background: rgb(255, 255, 255);
@@ -597,15 +608,15 @@ body {
   border-bottom-left-radius: 5px;
   position: relative;
 }
-.person__structure__legs__left.left {
+.person__structure__legs__leg.left {
   z-index: 1000;
 }
-.person__structure__legs__left.right {
+.person__structure__legs__leg.right {
   position: absolute;
   top: 0;
   transform: perspective(10px) rotate(357deg);
 }
-.person__structure__legs__left.right .swing {
+.person__structure__legs__leg.right .swing {
   animation: swing-rotate 2s ease-in-out infinite;
 }
 @keyframes swing-rotate {
@@ -619,7 +630,7 @@ body {
     transform: rotate(0deg);
   }
 }
-.person__structure__legs__left.right .lower__leg {
+.person__structure__legs__leg.right .lower__leg {
   width: 50px;
   height: 200px;
   border-top-right-radius: 10px;
@@ -631,7 +642,7 @@ body {
   border-top-left-radius: 5px;
   z-index: 5;
 }
-.person__structure__legs__left.right .foot {
+.person__structure__legs__leg.right .foot {
   position: absolute;
   right: 4%;
   transform: rotate(337deg);
@@ -675,7 +686,7 @@ button:hover {
 
 .move-out-laptop {
   transition: 0.5s;
-  left: -100%;
+  left: -150%;
   animation: fadeOpacity 2s ease-in-out infinite;
 }
 @keyframes fadeOpacity {
@@ -698,6 +709,238 @@ button:hover {
 .move-in-coffee {
   transition: 0.5s;
   right: 20%;
+}
+
+.notification {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #b8a289;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 0;
+}
+.notification.one {
+  animation: fadeIn 4s 10s ease-in-out none;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+.notification h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+  animation: fadeInUp 0.5s ease-in-out forwards;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.characters .character {
+  z-index: -100;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: -100%;
+}
+@media screen and (max-width: 768px) {
+  .characters .character {
+    transform: scale(0.8);
+  }
+}
+@media screen and (max-width: 600px) {
+  .characters .character {
+    transform: scale(0.6);
+  }
+}
+@media screen and (max-width: 500px) {
+  .characters .character {
+    transform: scale(0.4);
+  }
+}
+.characters .character .head {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #8b5a3c;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.characters .character .head .eye {
+  width: 4px;
+  height: 4px;
+  background: #333;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 6px;
+}
+.characters .character .head .smile {
+  width: 16px;
+  height: 8px;
+  border: 2px solid #333;
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+  background: transparent;
+}
+.characters .character .body {
+  margin-top: 2px;
+  width: 120px;
+  height: 160px;
+  position: relative;
+  border-radius: 10px 10px 0px 0px;
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+}
+.characters .character .body::before, .characters .character .body::after {
+  content: "";
+  position: absolute;
+  background-image: linear-gradient(#4a90e2 40%, #8b5a3c 0%);
+  width: 40px;
+  height: 80%;
+  border-radius: 20px;
+  top: 5px;
+}
+.characters .character .body::before {
+  left: -42px;
+}
+.characters .character .body::after {
+  right: -42px;
+  transform-origin: top right;
+}
+.characters .character .legs {
+  position: relative;
+  height: 160px;
+  width: 120px;
+  top: -3px;
+  display: flex;
+  justify-content: space-between;
+}
+.characters .character .legs .left,
+.characters .character .legs .right {
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(#616161 50%, #8b5a3c 0%);
+  border-radius: 0px 0px 15px 15px;
+  transform-origin: top;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.456);
+}
+.characters .walk {
+  animation: enterframe 10s ease-in-out 1 forwards;
+}
+@media screen and (max-width: 768px) {
+  @keyframes enterframe {
+    from {
+      left: -100%;
+    }
+    to {
+      left: 30%;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  @keyframes enterframe {
+    from {
+      left: -100%;
+    }
+    to {
+      left: 20%;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .characters .walk {
+    transform: scale(0.4);
+  }
+}
+.characters .walk .head::before {
+  content: "Hi there!";
+  position: absolute;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 20px;
+  height: 20px;
+  background: rgba(199, 166, 146, 0.6823529412);
+  top: -5px;
+  left: -54%;
+}
+.characters .walk .body::after {
+  animation: wave-arm 2s 1 6s alternate;
+}
+@keyframes wave-arm {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  30% {
+    transform: rotate(-25deg) translateY(-10px);
+  }
+  60% {
+    transform: rotate(-45deg) translateY(-30px);
+  }
+  90% {
+    transform: rotate(-25deg) translateY(-10px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+}
+.characters .walk .left {
+  animation: walk-leg 2s 5 alternate;
+  z-index: -1;
+}
+@keyframes walk-leg {
+  0% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+.characters .walk .left ~ .right {
+  animation: walk-leg-right 2s 5 alternate;
+  z-index: -3;
+}
+@keyframes walk-leg-right {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
 }
 
 .wrap {

@@ -14,7 +14,7 @@ body {
   margin: 0px;
   padding: 0px;
   // overflow: hidden;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   font-family: "Poppins", sans-serif;
 }
 
@@ -27,7 +27,7 @@ body {
   text-align: center;
   h3 {
     padding: 10px;
-    background: #F4E5A1 ;
+    background: #f4e5a1;
     position: relative;
     animation: banner-swing 1s infinite ease-in-out alternate;
     box-shadow: 0px 10px 20px rgba(132, 132, 132, 0.593);
@@ -38,7 +38,7 @@ body {
     position: absolute;
     width: 7px;
     height: 100%;
-    background: #E8E8E8 ;
+    background: #e8e8e8;
     top: -35px;
     z-index: -1;
     animation: banner-swing-before 1s infinite ease-in-out alternate;
@@ -77,6 +77,7 @@ body {
   position: absolute;
   bottom: 40px;
   left: 3%;
+  z-index: 1000;
 }
 .box {
   &.box-below,
@@ -138,36 +139,48 @@ body {
 }
 
 .person {
-  transform: scale(0.8);
-
-  @media screen and (max-width: 1024px) {
-    transform: scale(0.8);
-  }
   @media screen and (max-width: 768px) {
-    transform: scale(0.5);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
   }
-  position: relative;
+  @media screen and (max-width: 600px) {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+  @media screen and (max-width: 500px) {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  width: fit-content;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   .workspace {
     position: relative;
     top: 190px;
-    left: 50%;
+    // left: 50%;
     z-index: 100;
-    transform: translateX(-35%) scale(0.8);
+    // transform: translateX(-35%) scale(0.8);
+    // transform: translateX(-35%) scale(0.8);
   }
   .worker {
     width: fit-content;
     position: relative;
-    top: -100px;
+    top: -70px;
     left: 40%;
-    transform: translateX(-20%);
+    transform: translateX(-50%);
   }
 
   &__laptop {
-    width: 20%;
-    height: 180px;
+    width: 220px;
+    height: 120px;
     // background: orange;
     position: relative;
-    left: 5%;
+    left: 18%;
 
     // &::before {
     //   content: "";
@@ -214,7 +227,7 @@ body {
     }
   }
   &__table {
-    width: 60%;
+    width: 750px;
     height: 20px;
     background: #e8d5b7;
     border-radius: 5px;
@@ -225,7 +238,8 @@ body {
       content: "";
       position: absolute;
       width: 13px;
-      height: 400px;
+      height: 350px;
+      top: 2px;
       background: #e8d5b7;
     }
     &::before {
@@ -493,11 +507,8 @@ body {
               width: 80px;
               height: 25px;
               background: $skin-color;
-
-              // border-radius: 10px 10px 0 0;
               top: 90%;
               right: -12%;
-              // clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 70%);
               transform: rotate(-30deg) skew(0deg);
               border-top-right-radius: 50% 50px;
               border-bottom-right-radius: 50% 50px;
@@ -512,7 +523,6 @@ body {
               width: 100%;
               height: 25px;
               background: $skin-color;
-
               border-radius: 10px 10px 0 0;
               top: 111%;
               // righ: 100%;
@@ -538,7 +548,7 @@ body {
           }
 
           .hand {
-            animation: left__hand-rotate 10s linear infinite;
+            // animation: left__hand-rotate 10s linear infinite;
           }
         }
 
@@ -630,7 +640,7 @@ body {
         right: -15%;
         z-index: -1;
       }
-      &__left {
+      &__leg {
         width: fit-content;
         .thigh {
           position: relative;
@@ -721,13 +731,13 @@ body {
           }
         }
       }
-      &__left.left {
+      &__leg.left {
         z-index: 1000;
         // .thigh .top,.thigh .bottom,.lower__leg,.lower__leg::after {
         //   box-shadow: 2px 3px 2px 0px rgba(23, 23, 23, 0.538);
         // }
       }
-      &__left.right {
+      &__leg.right {
         position: absolute;
 
         top: 0;
@@ -819,7 +829,7 @@ button {
 .move-out {
   &-laptop {
     transition: 0.5s;
-    left: -100%;
+    left: -150%;
     animation: fadeOpacity 2s ease-in-out infinite;
 
     @keyframes fadeOpacity {
@@ -849,6 +859,259 @@ button {
     right: 20%;
   }
 }
+
+// Notification styles
+.notification {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #b8a289;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 0;
+
+  &.one {
+    animation: fadeIn 4s 10s ease-in-out none;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    animation: fadeInUp 0.5s ease-in-out forwards;
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+// Character design
+.characters {
+  .character {
+    @media screen and (max-width: 768px) {
+      transform: scale(0.8);
+    }
+    @media screen and (max-width: 600px) {
+      transform: scale(0.6);
+    }
+    @media screen and (max-width: 500px) {
+      transform: scale(0.4);
+    }
+    z-index: -100;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    left: -100%;
+
+    .head {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #8b5a3c;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      // gap: 5px;
+
+      .eye {
+        width: 4px;
+        height: 4px;
+        background: #333;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 6px;
+      }
+
+      .smile {
+        width: 16px;
+        height: 8px;
+        border: 2px solid #333;
+        border-top: none;
+        border-radius: 0 0 16px 16px;
+
+        background: transparent;
+      }
+    }
+    .body {
+      margin-top: 2px;
+      width: 120px;
+      height: 160px;
+      position: relative;
+      border-radius: 10px 10px 0px 0px;
+      background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        background-image: linear-gradient(#4a90e2 40%, #8b5a3c 0%);
+        width: 40px;
+        height: 80%;
+        border-radius: 20px;
+        top: 5px;
+      }
+      &::before {
+        left: -42px;
+      }
+      &::after {
+        right: -42px;
+        transform-origin: top right;
+      }
+    }
+    .legs {
+      position: relative;
+      height: 160px;
+      width: 120px;
+      top: -3px;
+      display: flex;
+      justify-content: space-between;
+
+      .left,
+      .right {
+        width: 45%;
+        height: 100%;
+        background: linear-gradient(#616161 50%, #8b5a3c 0%);
+        border-radius: 0px 0px 15px 15px;
+        transform-origin: top;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.456);
+      }
+    }
+  }
+
+  // this is for when the character is walking
+
+  .walk {
+    @media screen and (max-width: 768px) {
+      @keyframes enterframe {
+        from {
+          left: -100%;
+        }
+        to {
+          left: 30%;
+        }
+      }
+    }
+    @media screen and (max-width: 600px) {
+      @keyframes enterframe {
+        from {
+          left: -100%;
+        }
+        to {
+          left: 20%;
+        }
+      }
+    }
+    @media screen and (max-width: 500px) {
+      transform: scale(0.4);
+    }
+    animation: enterframe 10s ease-in-out 1 forwards;
+
+    .head {
+      &::before {
+        content: "Hi there!";
+        position: absolute;
+        width: fit-content;
+        padding: 10px;
+        border-radius: 20px;
+        height: 20px;
+        background: #c7a692ae;
+        // border-radius: 50%;
+        top: -5px;
+        left: -54%;
+      }
+    }
+    .body {
+      &::after {
+        animation: wave-arm 2s 1 6s alternate;
+
+        @keyframes wave-arm {
+          0% {
+            transform: rotate(0deg) translateY(0);
+          }
+          30% {
+            transform: rotate(-25deg) translateY(-10px);
+          }
+          60% {
+            transform: rotate(-45deg) translateY(-30px);
+          }
+          90% {
+            transform: rotate(-25deg) translateY(-10px);
+          }
+          100% {
+            transform: rotate(0deg) translateY(0);
+          }
+        }
+      }
+    }
+
+    .left {
+      // transform: rotate(10deg);
+      animation: walk-leg 2s 5 alternate;
+      z-index: -1;
+      @keyframes walk-leg {
+        0% {
+          transform: rotate(5deg);
+        }
+        50% {
+          transform: rotate(-10deg);
+        }
+        100% {
+          transform: rotate(5deg);
+        }
+      }
+
+      ~ .right {
+        animation: walk-leg-right 2s 5 alternate;
+        z-index: -3;
+      }
+
+      @keyframes walk-leg-right {
+        0% {
+          transform: rotate(-5deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+        100% {
+          transform: rotate(-5deg);
+        }
+      }
+    }
+  }
+}
+
+// Eyes
 .wrap {
   position: absolute;
   width: 100px;
@@ -919,6 +1182,7 @@ button {
   }
 }
 
+// Animations for the eyes
 @keyframes grina {
   0%,
   10% {
@@ -949,6 +1213,7 @@ button {
   }
 }
 
+// Smoke animations
 @-webkit-keyframes fadeOutUp {
   0% {
     opacity: 0.6;

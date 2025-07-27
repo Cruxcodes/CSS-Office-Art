@@ -1,4 +1,5 @@
 const goHomeBtn = document.getElementById("go-home");
+const character = document.querySelector(".character");
 const personLaptop = document.querySelector(".person__laptop");
 const coffee = document.querySelector(".coffee");
 const mouth = document.querySelector(".mouth");
@@ -9,7 +10,7 @@ const audio = new Audio("../assets/home.mp3");
 audio.loop = true;
 
 goHomeBtn.addEventListener("click", () => {
-  if (goHomeBtn.textContent === "Let me go home") {
+  if (goHomeBtn.textContent === "Take a break") {
     // Move out and play song
     if (personLaptop && coffee && mouth) {
       personLaptop.classList.add("move-out-laptop");
@@ -20,6 +21,8 @@ goHomeBtn.addEventListener("click", () => {
 
       mouth.classList.add("sing-mouth");
       //   mouth.classList.remove("move-in-mouth");
+
+      character.classList.add("walk");
     }
     audio.play();
     goHomeBtn.textContent = "Go to work";
@@ -34,10 +37,11 @@ goHomeBtn.addEventListener("click", () => {
       coffee.classList.add("move-in-coffee");
 
       mouth.classList.remove("sing-mouth");
+      character.classList.remove("walk");
     }
     audio.pause();
     audio.currentTime = 0;
-    goHomeBtn.textContent = "Let me go home";
-    buttonInfo.textContent = "Sometimes life if just work and worke";
+    goHomeBtn.textContent = "Take a break";
+    buttonInfo.textContent = "Sometimes life if just work and work";
   }
 });
