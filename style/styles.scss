@@ -5,11 +5,15 @@ $bg: #eae0ce;
 $cubic: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 $hair-color: #ebb447;
 $trouser-color: #898888;
+$background-color: #3f3e4a;
+
 body {
   // background: #655ae7;
-  background: #3f3e4a;
+  background: $background-color;
   margin: 0px;
   padding: 0px;
+  // overflow: hidden;
+  overflow-x: hidden;
 }
 
 .boxes {
@@ -18,6 +22,9 @@ body {
   justify-content: center;
   align-items: center;
   width: fit-content;
+  position: absolute;
+  bottom: 20px;
+  left: 3%;
 }
 .box {
   &.box-below,
@@ -79,6 +86,14 @@ body {
 }
 
 .person {
+    transform: scale(0.8);
+
+  @media screen and (max-width: 1024px) {
+    transform: scale(0.8);
+  }
+  @media screen and (max-width: 768px) {
+    transform: scale(0.5);
+  }
   position: relative;
   .workspace {
     position: relative;
@@ -149,7 +164,7 @@ body {
   &__table {
     width: 60%;
     height: 20px;
-    background: $light-purple;
+    background: #e8d5b7;
     border-radius: 5px;
     position: relative;
 
@@ -159,13 +174,90 @@ body {
       position: absolute;
       width: 13px;
       height: 400px;
-      background: $light-purple;
+      background: #e8d5b7;
     }
     &::before {
       left: 25px;
     }
     &::after {
       right: 25px;
+    }
+
+    .coffee {
+      position: absolute;
+      width: 40px;
+      height: 50px;
+      background: #5238d1;
+      bottom: 20px;
+      right: 30%;
+      z-index: 100;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-image: linear-gradient(#5238d1 50%, $background-color 0%);
+        border-radius: 50%;
+        top: 50%;
+        right: -50%;
+        transform: translateY(-50%) rotate(-90deg);
+        border-bottom: 4px solid white;
+      }
+
+      .steam {
+        position: absolute;
+        top: -50%;
+        width: 30px;
+        height: 30px;
+        z-index: -4;
+        opacity: 0.8;
+        display: flex;
+        filter: blur(10px);
+        -webkit-filter: blur(10px);
+        &::before {
+          content: "";
+          width: 30px;
+          height: 40px;
+          background-color: white;
+          -webkit-animation: fadeOutUp linear 5s;
+          animation: fadeOutUp linear 5s;
+          -webkit-animation-iteration-count: infinite;
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+          clip-path: polygon(
+            33% 40%,
+            52% 12%,
+            84% 29%,
+            62% 65%,
+            54% 89%,
+            73% 92%,
+            73% 74%,
+            53% 63%,
+            77% 57%,
+            95% 31%,
+            71% 3%,
+            34% 47%,
+            50% 37%,
+            69% 39%,
+            69% 29%,
+            76% 35%,
+            61% 6%,
+            64% 47%,
+            91% 9%,
+            51% 5%,
+            84% 61%,
+            91% 49%,
+            35% 19%,
+            40% 10%,
+            57% 41%,
+            57% 54%,
+            92% 19%
+          );
+
+          border-radius: 60% 50%;
+        }
+      }
     }
   }
 
@@ -204,11 +296,8 @@ body {
           width: 40%;
           height: 15%;
           background: $skin-color;
-          // border-top-left-radius: 10%;
-          // border-top-right-radius: 50%;
           border-radius: 50%;
           top: -7%;
-          // left: -10px;
         }
         &::after {
           content: "";
@@ -216,12 +305,53 @@ body {
           width: 70%;
           height: 15%;
           background: $hair-color;
-          // border-top-left-radius: 10%;
-          // border-top-right-radius: 50%;
           border-radius: 50%;
           top: -7%;
           left: 30%;
-          // left: -10px;
+        }
+        .mouth {
+          border-radius: 50%;
+          // border-top: 3px solid red;
+          position: absolute;
+          background: #000;
+          height: 0.5px;
+          width: 10px;
+          top: 70%;
+          transform: translateY(-40%);
+          left: 6px;
+          z-index: 1000;
+          // animation: mouth_move 3s ease-in-out infinite alternate-reverse;
+
+          &.sing-mouth {
+            animation: mouth_move 6s 3s ease-in-out 1 alternate-reverse;
+          }
+          @keyframes mouth_move {
+            0% {
+              height: 0.5px;
+              width: 10px;
+              border-radius: 0px;
+            }
+            25% {
+              height: 10px;
+              width: 10px;
+              border-radius: 40%;
+            }
+            50% {
+              height: 10px;
+              width: 10px;
+              border-radius: 50%;
+            }
+            78% {
+              height: 10px;
+              width: 10px;
+              border-radius: 40%;
+            }
+            100% {
+              height: 1px;
+              width: 10px;
+              border-radius: 0%;
+            }
+          }
         }
 
         .ear {
@@ -231,29 +361,18 @@ body {
           background: $skin-color;
           box-shadow: inset -1px 0px 2px 0px rgba(144, 138, 138, 0.08),
             2px 3px 2px 0px rgba(55, 50, 50, 0.08);
-          // border-top-left-radius: 10%;
-          // border-top-right-radius: 50%;
           border-radius: 50%;
           z-index: 100;
-          // bottom: -7%;
-          // right: -20px;
-          // z-index: -1;
           bottom: 40%;
-          // z-index: 100;
           right: -8px;
           transform: rotate(-20deg);
           &::after {
             content: "";
-
             position: absolute;
             width: 15px;
             height: 60px;
             background: $hair-color;
-            // border-top-left-radius: 10%;
-            // border-top-right-radius: 50%;
-            // border-radius: 50%;
             transform: rotate(20deg);
-            // border-radius: 10px ;
             border-bottom-left-radius: 10px 50px;
             top: -30px;
             left: 0px;
@@ -433,7 +552,7 @@ body {
         position: absolute;
         width: 60%;
         height: 10%;
-        background: #5238d1;
+        background: #2b3a67;
         top: 41.5%;
         right: -40%;
         // z-index: -1;
@@ -443,7 +562,7 @@ body {
         position: absolute;
         width: 60%;
         height: 10%;
-        background: #a29bfe;
+        background: #5a5a5a;
         // top: 41.5%;
         border-radius: 50% 50% 0 0;
         bottom: 0px;
@@ -455,7 +574,7 @@ body {
         position: absolute;
         width: 10%;
         height: 55%;
-        background: #a29bfe;
+        background: #5a5a5a;
         bottom: 0px;
         right: -15%;
         z-index: -1;
@@ -601,6 +720,70 @@ body {
   }
 }
 
+.button {
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+
+  h3 {
+    font-size: 1rem;
+    color: lighten($skin-color, 15%);
+    text-shadow: 1px 6px 2px rgba(88, 88, 88, 0.74);
+  }
+  button {
+    outline: none;
+    border: none;
+    padding: .1rem .6rem;
+    box-sizing: border-box;
+    background: $skin-color;
+    border-radius: 5px;
+    color: #fff;
+    font-size: .8rem;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      background: darken($skin-color, 10%);
+      transform: scale(1.05);
+    }
+  }
+}
+
+.move-out {
+  &-laptop {
+    transition: 0.5s;
+    left: -100%;
+    animation: fadeOpacity 2s ease-in-out infinite;
+
+    @keyframes fadeOpacity {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+  }
+
+  &-coffee {
+    transition: 0.5s;
+    right: 65% !important;
+  }
+}
+.move-in {
+  &-laptop {
+    transition: 0.5s;
+    left: 5%;
+  }
+
+  &-coffee {
+    transition: 0.5s;
+    right: 20%;
+  }
+}
 .wrap {
   position: absolute;
   width: 100px;
@@ -710,5 +893,81 @@ body {
   50%,
   100% {
     top: 0;
+  }
+}
+
+@-webkit-keyframes fadeOutUp {
+  0% {
+    opacity: 0.6;
+    -webkit-transform: translate3d(0, -20%, 0);
+    transform: translate3d(0, -20%, 0);
+  }
+  20% {
+    opacity: 0.3;
+    -webkit-transform: translate3d(0, -40%, 0);
+    transform: translate3d(0, -40%, 0);
+  }
+  40% {
+    opacity: 0.4;
+    -webkit-transform: translate3d(0, -60%, 0);
+    transform: translate3d(0, -60%, 0);
+  }
+  60% {
+    opacity: 0.3;
+    -webkit-transform: translate3d(0, -80%, 0);
+    transform: translate3d(0, -80%, 0);
+  }
+  80% {
+    opacity: 0.4;
+    -webkit-transform: translate3d(0, -90%, 0);
+    transform: translate3d(0, -90%, 0);
+  }
+  90% {
+    opacity: 0.2;
+    -webkit-transform: translate3d(0, -95%, 0);
+    transform: translate3d(0, -95%, 0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes fadeOutUp {
+  0% {
+    opacity: 0.6;
+    -webkit-transform: translate3d(0, -20%, 0);
+    transform: translate3d(0, -20%, 0);
+  }
+  20% {
+    opacity: 0.3;
+    -webkit-transform: translate3d(0, -40%, 0);
+    transform: translate3d(0, -40%, 0);
+  }
+  40% {
+    opacity: 0.4;
+    -webkit-transform: translate3d(0, -60%, 0);
+    transform: translate3d(0, -60%, 0);
+  }
+  60% {
+    opacity: 0.3;
+    -webkit-transform: translate3d(0, -80%, 0);
+    transform: translate3d(0, -80%, 0);
+  }
+  80% {
+    opacity: 0.4;
+    -webkit-transform: translate3d(0, -90%, 0);
+    transform: translate3d(0, -90%, 0);
+  }
+  90% {
+    opacity: 0.2;
+    -webkit-transform: translate3d(0, -95%, 0);
+    transform: translate3d(0, -95%, 0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
   }
 }
